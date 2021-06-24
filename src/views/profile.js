@@ -1,6 +1,7 @@
 import React from "react";
-
+import { JsonToTable } from "react-json-to-table";
 import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Profile = () => {
   const { user } = useAuth0();
@@ -22,9 +23,9 @@ const Profile = () => {
         </div>
       </div>
       <div className="row">
-        <pre className="col-12 text-light bg-dark p-4">
-          {JSON.stringify(user, null, 2)}
-        </pre>
+        <div className="col-10 text-dark p-4">
+          <JsonToTable json={user} /> {/*Uses react-json-to-table package to display user's information in a table*/}
+        </div>
       </div>
     </div>
   );
